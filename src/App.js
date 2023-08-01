@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes, Switch } from "react-router-dom";
+import "./App.css";
+import NavBar from "./components/NavBar";
+import logo from "./logo.svg";
+import About from "./pages/About";
+import Cart from "./pages/Cart";
+import Home from "./pages/Home";
+import Shop from "./pages/Shop";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-gradient-to-tr from-cyan-400 to-red-300">
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/about" element={<About />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+        <footer className="bg-black text-white text-center mt-5 py-5">
+          This website is made by Pranesh Monda
+        </footer>
+      </BrowserRouter>
     </div>
   );
 }
